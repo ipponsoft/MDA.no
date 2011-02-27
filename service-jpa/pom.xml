@@ -1,0 +1,68 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>MDA.no</artifactId>
+    <groupId>ipponsoft</groupId>
+    <version>0.1</version>
+  </parent>
+
+  <groupId>ipponsoft</groupId>
+  <artifactId>MDA.no-service-jpa</artifactId>
+  <name>Services/JPA</name>
+  <version>0.1</version>
+  
+  <properties>
+	<!-- jpaobjects.version>1.0.0</jpaobjects.version -->
+	<postgresql.jdbc.version>8.3-603.jdbc3</postgresql.jdbc.version>
+	<slf4j.version>1.4.3</slf4j.version>
+  </properties>  
+
+  <dependencies>
+
+	<dependency>
+		<groupId>${project.groupId}</groupId>
+		<artifactId>MDA.no-dom</artifactId>
+	</dependency>
+
+	<dependency>
+		<groupId>org.starobjects.jpa</groupId>
+		<artifactId>runtime</artifactId>
+		<version>${jpaobjects.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.starobjects.jpa</groupId>
+		<artifactId>tools</artifactId>
+		<version>${jpaobjects.version}</version>
+	</dependency>
+
+	<!-- postgres JDBC driver -->
+	<dependency>
+		<groupId>postgresql</groupId>
+		<artifactId>postgresql</artifactId>
+	</dependency>
+
+	<!-- SLF4j binding (used by Hibernate) -->
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-api</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-log4j12</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-nop</artifactId>
+		<scope>test</scope>
+	</dependency>
+	
+  </dependencies>
+
+  <dependencyManagement>
+	<dependencies>
+	</dependencies>
+  </dependencyManagement>
+
+</project>

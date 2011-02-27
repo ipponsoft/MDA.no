@@ -1,0 +1,5 @@
+!|alias services|
+|class name|alias=|
+|library.BuchRepositoryJPA|Buecher|
+|library.CDRepositoryJPA|CDs|
+|library.BenutzerRepositoryJPA|Leser|

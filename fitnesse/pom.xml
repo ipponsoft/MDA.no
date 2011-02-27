@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+        <artifactId>MDA.no</artifactId>
+        <groupId>ipponsoft</groupId>
+        <version>0.1</version>
+    </parent>
+
+	<name>FitNesse Integration</name>
+    <artifactId>MDA.no-fitnesse</artifactId>
+
+	<!--
+	if run in the directory containing the parent project's pom.xml
+	then mvn will automatically specify the parent and update the parent's modules element
+	-->
+
+    <build>
+		<plugins>
+            <!-- 
+            automatically copies all dependencies 
+            so that FitNesse test runner can pick up 
+            -->
+			<plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-dependency-plugin</artifactId>
+		        <executions>
+		          <execution>
+		            <configuration>
+						<outputDirectory>${project.build.directory}/dependency</outputDirectory>
+		            </configuration>
+		            <phase>package</phase>
+		            <goals>
+		            	<goal>copy-dependencies</goal>
+		            </goals>
+		          </execution>
+		        </executions>
+		    </plugin>
+		</plugins>
+    </build>
+    <repositories>
+    	<repository>
+    		<id>starobjects</id>
+    		<url>http://starobjects.sourceforge.net/m2-repo/snapshot/</url>
+    	</repository>
+    </repositories>
+
+	<dependencies>
+
+		<!-- this project's dependencies -->
+		<dependency>
+			<groupId>ipponsoft</groupId>
+            <artifactId>MDA.no-fixture</artifactId>
+            <version>0.1</version>
+        </dependency>
+
+		<!-- fitnesse:fixtures dependencies -->
+		<dependency>
+			<groupId>org.starobjects.tested.fitnesse</groupId>
+            <artifactId>fixtures</artifactId>
+            <version>1.0-beta-3-SNAPSHOT</version>
+        </dependency>
+
+		<!-- test dependencies -->
+        <dependency>
+          <groupId>org.hamcrest</groupId>
+          <artifactId>hamcrest-library</artifactId>
+          <version>1.1</version>
+          <scope>test</scope>
+        </dependency>
+
+        <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.6</version>
+          <scope>test</scope>
+        </dependency>
+        
+        <dependency>
+          <groupId>org.jmock</groupId>
+          <artifactId>jmock-junit4</artifactId>
+          <version>2.5.1</version>
+          <scope>test</scope>
+        </dependency>
+
+	</dependencies>
+</project>

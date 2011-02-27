@@ -1,0 +1,25 @@
+!include .AliasServices
+
+!1 Leser anlegen
+----
+!|set up objects|library.Benutzer |
+|Name           |Vorname|alias as |
+|Schmitz        |Joseph |Jupp     |
+|Schmitz        |Sybille|Billa    |
+|Kuda           |Barra  |Barrakuda|
+----
+!|using naked objects viewer                    |
+|on object|result=   |perform      |using member|
+|Leser    |Leserliste|invoke action|Alle Objekte|
+
+!|check list|Leserliste|precisely contains|
+|Title                                    |
+|Schmitz, Joseph                |
+|Schmitz, Sybille               |
+|Kuda, Barra                    |
+
+!|using naked objects viewer                                                  |
+|object|result=|interaction type|member|that it |value                        |
+|Jupp  |Gruss  |invoke action   |sag Hallo                                    |
+|Gruss |       |check property  |value |contains|Hallo, ich bin Joseph Schmitz|
+

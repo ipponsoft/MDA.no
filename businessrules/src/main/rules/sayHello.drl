@@ -1,0 +1,12 @@
+package com.sample
+ 
+import library.Benutzer;
+
+global de.ipponsoft.services.rules.Result RET;
+ 
+rule "Say Hello"
+	when
+		$b:Benutzer()
+	then
+		RET.value.append("Hallo, ich bin " + $b.getVorname() + " " + $b.getName());
+end
